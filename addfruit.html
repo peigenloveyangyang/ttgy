@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        form{ width: 415px; margin:50px auto }
+        label{ width: 100px; display: inline-block; text-align: right;}
+        input{ width: 300px; height: 30px;margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <form action="/fruit" method="post" enctype='multipart/form-data'><!-- -->
+        <label>名称：</label> <input type="text" name="name"><br>
+        <label>价格：</label> <input type="text" name="price"><br>
+        <label>规格：</label> <input type="text" name="size"><br>
+        <label>数量：</label> <input type="text" name="num"><br>
+        <label>甜度：</label> <input type="text" name="sweet"><br>
+        <label>保存方法：</label> <input type="text" name="saveMethod"><br>
+        <label>备注：</label> <input type="text" name="message"><br>
+        <label>说明：</label> <input type="text" name="explain"><br>
+        <label>品类：</label> <input type="text" name="shopClass"><br>
+        <label>商品编号：</label> <input type="text" name="skuId"><br>
+        <label>产地：</label> <input type="text" name="place"><br>
+        <label>口号：</label> <input type="text" name="kouHao"><br>
+        <label>图片：</label> <input type="file" name="img1"><br>
+        <label>图片：</label> <input type="file" name="img2"><br>
+        <label>图片：</label> <input type="file" name="img3"><br>
+        <label>图片：</label> <input type="file" name="img4"><br>
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>

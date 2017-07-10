@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="shortcut icon" href="http://www.fruitday.com/favicon.ico">
+    <link rel="stylesheet" href="css/alone.css">
+    <link rel="stylesheet" href="css/reset.css">
+</head>
+
+<body>
+    <img class="zt" src="images/s1.jpg" alt="">
+    <div class="zt">
+        <ul class="S_one">
+            <li>
+                <a href="###">
+                    <img src="images/s2.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="###">
+                    <img src="images/s3.jpg" alt="">
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="zt">
+        <ul class="S_one">
+            <li>
+                <a href="###">
+                    <img src="images/s4.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="###">
+                    <img src="images/s5.jpg" alt="">
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="S_two">
+        <img src="images/s6.jpg" alt="">
+    </div>
+    <div class="S_three">
+        <img src="images/s8.jpg" alt="">
+    </div>
+    <div>
+       <a href="###">
+       	 <img class="zt" src="images/s10.jpg" alt="">
+       </a>
+    </div>
+    <img class="jump" src="images/22.png" alt="">
+    <div class="shop_car">
+        <a href="###">
+            <img class="shop" src="images/23.svg" alt="">
+        </a>
+    </div>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script>
+    $(window).scroll(function() {
+        if ($(window).scrollTop() == 0) {
+            $(".jump").hide();
+        } else {
+            $(".jump").show();
+        }
+    })
+    $(".jump").click(function() {
+        function tops() {
+            var st = $(window).scrollTop();
+            st -= 100;
+            if (st < 0) {
+                $(window).scrollTop(0);
+            } else if (st > 0) {
+                $(window).scrollTop(st);
+                requestAnimationFrame(tops);
+            }
+        }
+        tops();
+    })
+    </script>
+</body>
+
+</html>

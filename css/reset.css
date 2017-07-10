@@ -1,0 +1,58 @@
+blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul{
+  margin:0;
+  padding:0;
+}
+  body,button,input,select,textarea{
+    font:14px/1.5 "Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  }
+  h1,h2,h3,h4,h5,h6{
+    font-size:100%;
+  }
+  address,cite,dfn,em,var{
+    font-style:normal;
+  }
+  code,kbd,pre,samp{
+    font-family:courier new,courier,monospace;
+  }
+  small{
+    font-size:12px;
+  }
+  ol,ul{
+    list-style:none;
+  }
+  a{
+    text-decoration:none;
+  }
+  sub{
+    vertical-align:text-bottom;
+  }
+  legend{
+    color:#000;
+  }
+  fieldset,img{
+    border:0;
+    vertical-align: top;
+  }
+  button,input,select,textarea{
+    font-size:100%;
+  }
+  table{
+    border-collapse:collapse;border-spacing:0;
+  }
+  b{
+    font-weight: bold;
+  }
+
+  /*base*/
+  .pos_lt{ position: absolute; left:0; top:0; }
+  .pos_rb{ position: absolute; right:0; bottom: 0; }
+  .s_util{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;color: #999;max-width: 120px;}
+  .s_name{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;color: #555;max-width: 210px;}
+  .pro_list{ line-height: 1; padding: 6px 5px; color: #fff;display: inline-block;}
+  ._hover:hover img{-webkit-transform: scale(1.2) ;-moz-transform: scale(1.2) ;-ms-transform: scale(1.2) ;-o-transform: scale(1.2) ;transform: scale(1.2) ;}
+  .container{ width: 1280px; margin:0 auto; }
+  .ico{ float: left; }
+  .clear{ clear:both; }
+  .f_l{ float: left; }
+  .f_r{ float: right; }
+  .clearfix{overflow: hidden;}

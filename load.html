@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <link rel="shortcut icon" href="http://www.fruitday.com/favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <title>登陆</title>
+    <style>
+        *{ box-sizing: border-box;}
+        .load_con{width:1000px;margin:0 auto;}
+        .load_con .member{font-size: 20px;color:#999;padding-top: 15px;padding-bottom: 16px;border-bottom: 1px solid #ccc;margin-bottom: 36px}
+        .load_con .loading{overflow: hidden;}
+        .load_con .load_left{width:500px;position: relative;margin-bottom: 46px;}
+        .load_con .load_left img{vertical-align: middle}
+        .load_con .load_right{width:500px;padding-left: 60px;}
+        .load_con .load_right .load_form{margin-top: 75px;}
+        .load_con .load_right .load_form ul li{margin-bottom: 26px;overflow: hidden}
+        .load_con .load_right .load_form .tel{width:96px;  height:40px;font-size: 16px;color:#999;text-align: right;}
+        .load_con .load_right .load_form .tel_input{position: relative;padding-left: 42px;}
+        .load_con .load_right .load_form .tel span{line-height: 40px;}
+        .load_con .load_right .load_form .tel_input input{width:300px;height: 40px;outline: none;}
+        .load_con .load_right .load_form .pass{width:96px;  height:40px;font-size: 16px;color:#999;text-align: right;}
+        .load_con .load_right .load_form .pass_input{position: relative;padding-left: 42px;}
+        .load_con .load_right .load_form .pass span{line-height: 40px;}
+        .load_con .load_right .load_form .pass_input input{width:300px;height: 40px;outline: none;}
+        .load_con .load_right .load_form .wj_mima{font-size: 16px;color:#999;width:300px;overflow: hidden;}
+        .load_con .load_right .wj_mima label{padding-left: 20px;cursor: pointer;}
+        .load_con .load_right .wj_mima label input{width:18px;height:18px;margin-top: -2px;}
+        .load_con .load_right .wj_mima .wj{line-height: 43px;}
+        .load_con .load_right .wj_mima .re{line-height: 43px;}
+        .load_con .load_right .wj_mima .wj a{color:#999;text-decoration: underline}
+        .load_con .load_right .regist{margin-right: 14px;}
+        .load_con .load_right .regist a{display: block;width:143px;height:38px;background-color: #64a131;padding: 0;border-radius: 4px;border:none;line-height:38px;text-align: center;color:#fff;text-decoration: none;font-size: 18px;}
+        .load_con .load_right .login a{display: block;width:143px;height:38px;background-color: #f5ffed;border:1px solid #64a131;padding: 0;border-radius: 4px;line-height:38px;text-align: center;color:#7bae55;text-decoration: none;font-size: 18px;}
+        #_alert .al_box p.alert_text{ background: #fff; text-align: center; font-size: 16px; padding-top: 20px; }
+    </style>
+</head>
+<body ng-app="myApp"  ng-controller="myController">
+<!--头部-->
+<div id="header">
+    <!-- 最上面的部分 -->
+    <div class="top">
+        <div class="container">
+            <div class="top_left">
+                <div class="top_down">
+                    <i class="ico che"></i> 上海
+                    <i class="ico san"></i>
+                    <div class="down_text">
+                        <h3>热门城市：</h3>
+                        <p>
+                            <a href="###">上海</a>
+                            <a href="###">广州</a>
+                            <a href="###">背景</a>
+                            <a href="###">苏州</a>
+                            <a href="###">南京</a>
+                            <a href="###">深圳</a>
+                        </p>
+                        <h3>选择城市：</h3>
+                        <ul>
+                            <li><a href="###">上海</a></li>
+                            <li><a href="###">上海崇明</a></li>
+                            <li>
+                                <a href="###" class="c_down">江苏</a>
+                                <ul class="down_list">
+                                    <li><a href="###">常州</a></li>
+                                    <li><a href="###">淮安</a></li>
+                                    <li><a href="###">连云港</a></li>
+                                    <li><a href="###">南京</a></li>
+                                    <li><a href="###">南通</a></li>
+                                    <li><a href="###">苏州</a></li>
+                                    <li><a href="###">泰州</a></li>
+                                    <li><a href="###">无锡</a></li>
+                                    <li><a href="###">宿迁</a></li>
+                                    <li><a href="###">徐州</a></li>
+                                    <li><a href="###">盐城</a></li>
+                                    <li><a href="###">扬州</a></li>
+                                    <li><a href="###">镇江</a></li>
+                                </ul>
+                                <i class="arrows"></i>
+                            </li>
+                            <li>
+                                <a href="###" class="c_down">浙江</a>
+                                <ul class="down_list">
+                                    <li><a href="###">杭州</a></li>
+                                    <li><a href="###">湖州</a></li>
+                                    <li><a href="###">嘉兴</a></li>
+                                    <li><a href="###">金华</a></li>
+                                    <li><a href="###">丽水</a></li>
+                                    <li><a href="###">宁波</a></li>
+                                    <li><a href="###">衢州</a></li>
+                                    <li><a href="###">绍兴</a></li>
+                                    <li><a href="###">台州</a></li>
+                                    <li><a href="###">温州</a></li>
+                                    <li><a href="###">舟山</a></li>
+                                </ul>
+                                <i class="arrows"></i>
+                            </li>
+                            <li>
+                                <a href="###" class="c_down">安徽</a>
+                                <ul class="down_list">
+                                    <li><a href="###">安庆</a></li>
+                                    <li><a href="###">蚌埠</a></li>
+                                    <li><a href="###">亳州</a></li>
+                                    <li><a href="###">池州</a></li>
+                                    <li><a href="###">滁州</a></li>
+                                    <li><a href="###">阜阳</a></li>
+                                    <li><a href="###">合肥</a></li>
+                                    <li><a href="###">淮北</a></li>
+                                    <li><a href="###">淮南</a></li>
+                                    <li><a href="###">黄山</a></li>
+                                    <li><a href="###">六安</a></li>
+                                    <li><a href="###">马鞍山</a></li>
+                                    <li><a href="###">铜陵</a></li>
+                                    <li><a href="###">芜湖</a></li>
+                                    <li><a href="###">宿州</a></li>
+                                    <li><a href="###">宣城</a></li>
+                                </ul>
+                                <i class="arrows"></i>
+                            </li>
+                            <li><a href="###">北京</a></li>
+                            <li><a href="###">天津</a></li>
+                            <li>
+                                <a href="###" class="c_down">河北</a>
+                                <ul class="down_list">
+                                    <li><a href="###">石家庄</a></li>
+                                    <li><a href="###">廊坊</a></li>
+                                    <li><a href="###">承德</a></li>
+                                    <li><a href="###">唐山</a></li>
+                                    <li><a href="###">保定</a></li>
+                                    <li><a href="###">沧州</a></li>
+                                    <li><a href="###">邯郸</a></li>
+                                    <li><a href="###">衡水</a></li>
+                                    <li><a href="###">秦皇岛</a></li>
+                                    <li><a href="###">邢台</a></li>
+                                    <li><a href="###">张家口</a></li>
+                                </ul>
+                                <i class="arrows"></i>
+                            </li>
+                            <li>
+                                <a href="###" class="c_down">广东</a>
+                                <ul class="down_list">
+                                    <li><a href="###">深圳</a></li>
+                                    <li><a href="###">广州</a></li>
+                                    <li><a href="###">珠海</a></li>
+                                    <li><a href="###">汕头</a></li>
+                                    <li><a href="###">韶关</a></li>
+                                    <li><a href="###">佛山</a></li>
+                                    <li><a href="###">江门</a></li>
+                                    <li><a href="###">湛江</a></li>
+                                    <li><a href="###">茂名</a></li>
+                                    <li><a href="###">肇庆</a></li>
+                                    <li><a href="###">惠州</a></li>
+                                    <li><a href="###">梅州</a></li>
+                                    <li><a href="###">汕尾</a></li>
+                                    <li><a href="###">河源</a></li>
+                                    <li><a href="###">阳江</a></li>
+                                    <li><a href="###">清远</a></li>
+                                    <li><a href="###">东莞</a></li>
+                                    <li><a href="###">中山</a></li>
+                                    <li><a href="###">揭阳</a></li>
+                                    <li><a href="###">云浮</a></li>
+                                    <li><a href="###">潮州</a></li>
+                                </ul>
+                                <i class="arrows"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <span>满百包邮（环郊内）</span>
+                <a href="#">星夜达</a>
+            </div>
+            <div class="top_right">
+                <ul>
+                    <li class="fir">
+                        <a href="#" class="fir_a">[ 登录 ]</a> ，
+                        <a href="#">[ 注册有惊喜 ]</a>
+                    </li>
+                    <li>|</li>
+                    <li class="gog">
+                        果园公告
+                        <div class="list-unstyled">
+                            <ul>
+                                <li>
+                                    <a href="###">全仓充值活动调整公告</a>
+                                    <em class="new">new</em>
+                                </li>
+                                <li>
+                                    <a href="###">全仓充值活动调整公告</a>
+                                    <em class="new">new</em>
+                                </li>
+                                <li>
+                                    <a href="###">全仓充值活动调整公告</a>
+                                    <em class="new">new</em>
+                                </li>
+                                <li>
+                                    <a href="###">全仓充值活动调整公告</a>
+                                    <em class="new">new</em>
+                                </li>
+                            </ul>
+                            <p><a href="###">查看更多 ></a></p>
+                        </div>
+                    </li>
+                    <li>|</li>
+                    <li><a href="#">劵卡兑换</a></li>
+                    <li>|</li>
+                    <li class="phone">
+                        <i class="ico shoji"></i> 手机果园
+                        <div class="list-unstyled">
+                            <p>
+                                <a href="###">下载果园app，</a> 即享果园特价商品
+                            </p>
+                            <dl>
+                                <dt>
+                                    <img src="images/guan_ewcode1.jpg" alt="">
+                                </dt>
+                                <dd>
+                                    <a href="###" class="btn"><img src="images/guan_btn01.jpg" alt=""></a>
+                                    <a href="###" class="btn"><img src="images/guan_btn02.jpg" alt=""></a>
+                                </dd>
+                            </dl>
+                            <dl class="m_b">
+                                <dt>
+                                    <img src="images/guan_ewcode2.jpg" alt="">
+                                </dt>
+                                <dd>
+                                    <a href="###" class="f_a">关注果园微信</a>
+                                    <p>优惠信息实时掌握</p>
+                                </dd>
+                            </dl>
+                        </div>
+                    </li>
+                    <li>|</li>
+                    <li><b><i class="ico kefu"></i>400-720-0770</b></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- nav -->
+    <div class="nav">
+        <div class="container">
+            <a href="###" class="logo"></a>
+            <div class="cen_nav">
+                <ul>
+                    <li>
+                        <a href="###">
+                            <span>首页</span>
+                            <br>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="###">
+                            <span>鲜果</span>
+                            <br>
+                            <span>Fruit</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="###">
+                            <span>生鲜</span>
+                            <br>
+                            <span>Fresh</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="###">
+                            <span>礼品</span>
+                            <br>
+                            <span>Gift</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="###" class="last">
+                            <span>会员中心</span>
+                            <br>
+                            <span>VIP Club</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 清浮动 -->
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<!--会员登录-->
+<div class="load_con">
+    <p class="member">会员登录</p>
+    <div class="loading">
+        <div class="load_left pull_left">
+            <img src="images/huiyuan.jpg" alt="">
+        </div>
+        <div class="load_right pull_right">
+            <form class="load_form">
+                <ul>
+                    <li>
+                        <div class="tel pull_left"><span>手机号</span></div>
+                        <div class="tel_input pull_right">
+                            <input type="text" ng-model="tel" >
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pass pull_left"><span>密码</span></div>
+                        <div class="pass_input pull_right">
+                            <input type="password" ng-model="pass">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="wj_mima pull_right">
+                            <div class="re pull_left">
+                                <label for="blankCheckbox">
+                                    <input type="checkbox" id="blankCheckbox" checked="checked">
+                                    <span>记住密码</span>
+                                </label>
+                            </div>
+                            <div class="wj pull_right">
+                                <a href="/verify" target="_blank">忘记密码?</a>
+                                <a href="/quickLogin">快捷登录</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="pull_right">
+                        <div class="regist pull_left">
+                            <a href="###" ng-click="load()">登录</a>
+                        </div>
+                        <div class="login pull_right">
+                            <a href="regist.html">注册会员</a>
+                        </div>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- footer -->
+<div class="foot">
+    <div class="container content">
+        <ul class="ul">
+            <li class="fo_img1"></li>
+            <li class="fo_img2"></li>
+            <li class="fo_img3"></li>
+            <li class="fo_img4"></li>
+        </ul>
+        <div class="footbar">
+            <div class="block1 pull_left">
+                <div class="logo"></div>
+                <div class="tel">
+                    <img src="./images/guan_tel.png" alt="">
+                </div>
+                <div class="font-gray">
+                    <span class="f1">电话客服：</span><span class="f2">09:00 - 21:00</span>
+                    <br>
+                    <span class="f1">在线客服：</span><span class="f2">08:00 - 24:00</span>
+                </div>
+            </div>
+            <ul class="block2 pull_left">
+                <li>
+                    <img src="./images/guan_ewcode1.jpg" alt="">
+                    <span>天天果园官方微信</span>
+                </li>
+                <li>
+                    <img src="./images/guan_ewcode2.jpg" alt="">
+                    <span>天天果园APP</span>
+                </li>
+            </ul>
+            <ul class="block3 pull_left">
+                <li>
+                    <h4>购物指南</h4>
+                    <a href="help.html?id=0">新用户注册</a>
+                    <a href="help.html?id=1">在线下单</a>
+                    <a href="help.html?id=2">支付方式</a>
+                </li>
+                <li>
+                    <h4>配送说明</h4>
+                    <a href="help.html?id=3">运费说明</a>
+                    <a href="help.html?id=4">运费方式</a>
+                    <a href="help.html?id=5">发票说明</a>
+                </li>
+                <li>
+                    <h4>售后服务</h4>
+                    <a href="help.html?id=6">退换货规则</a>
+                    <a href="help.html?id=7">服务保障承诺</a>
+                    <a href="help.html?id=8">验货与签收</a>
+                </li>
+                <li>
+                    <h4>企业服务</h4>
+                    <a href="help.html?id=9">企业订购</a>
+                    <a href="help.html?id=10">公司简介</a>
+                    <a href="help.html?id=11">定制专区</a>
+                </li>
+            </ul>
+        </div>
+        <div class="text-right">
+            <p class="p1">版权所有 ©2017上海天天鲜果电子商务有限公司&nbsp;&nbsp;保留所有权利 |<a href="#">沪ICP备12042163</a>
+            </p>
+            <p class="p2">天天果园&nbsp;&nbsp;鲜果网购</p>
+            <div>
+                <a href="https://www.sgs.gov.cn/lz/licenseLink.do?method=licenceView&amp;entyId=dov73ne26zbqpug3tq1p70teyahin76ot0">
+                    <img class="fo_logo" src="http://img9.fruitday.com/guan_shgs.gif" border="0">
+                </a>
+                <a class="fo_logo2" href="http://shwg.dianping.com/index.html"><img src="http://img9.fruitday.com/guan_wgdjp.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 弹窗 -->
+<div id="_alert">
+    <div class="al_box">
+        <p>
+            <i class="iconfont">&#xe60e;</i>
+        </p>
+        <p class="alert_text" ng-bind="t_box"></p>
+        <div class="btn_box">
+            <a href="###" class="true">确定</a>
+            <a href="###" class="false">取消</a>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/common.js"></script>
+<script>
+
+    var app=angular.module("myApp",[]);
+    app.controller("myController",function ($scope,$http) {
+        //   登陆
+        $scope.load=function () {
+            $http.get("http://10.80.11.241:8080/load",{
+                params:{
+                    tel:$scope.tel,
+                    pass:$scope.pass}
+            }).then(function (res) {
+                $scope.t_box = res.data.msg
+                if(res.data.status == "1"){
+                    setCookie('name',$scope.tel)
+                    setCookie('sta',"true");
+                    window.location.href = "index.html"
+                }else{
+                    _alertFn(null,null);
+                }
+            },function(err){
+                console.log(err);
+            })
+
+
+
+        }
+
+    })
+</script>
+</html>

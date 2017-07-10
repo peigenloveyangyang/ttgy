@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="http://www.fruitday.com/favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <script></script>
+    <title>注册</title>
+    <style>
+        *{ box-sizing: border-box;}
+        .load_con{width:1000px;margin:0 auto;}
+        .load_con .member{font-size: 20px;color:#999;padding-top: 15px;padding-bottom: 16px;border-bottom: 1px solid #ccc;margin-bottom: 36px}
+        .load_con .load_left{width:500px;position: relative;margin-bottom: 46px;}
+        .load_con .load_left img{vertical-align: middle}
+        .load_con .load_right{width:500px;padding-left: 60px;}
+        .load_con .load_right .zhuce ul li{margin-bottom: 26px; overflow: hidden; position: relative; width: 480px;padding-right: 40px;}
+        .load_con .load_right .zhuce .tel{width:96px;height:40px;font-size: 16px;color:#999;text-align: right;}
+        .load_con .load_right .zhuce input{ border:1px solid #ccc;}
+        .load_con .load_right .zhuce .tel span{line-height: 40px;}
+        .load_con .load_right .zhuce .tel_input input{width:300px;height: 40px;outline: none;}
+        .load_con .load_right .zhuce .pass{width:96px;  height:40px;font-size: 16px;color:#999;text-align: right;}
+        .load_con .load_right .zhuce .pass span{line-height: 40px;}
+        .load_con .load_right .zhuce .pass_input input{width:300px;height: 40px;outline: none;}
+        .load_con .load_right .zhuce .yzm input{width:272px;height: 40px;outline: none;margin-left: 44px;}
+        .load_con .load_right .regist{margin-right: 4px;}
+        .load_con .load_right .regist a{cursor:pointer;display: block;width:143px;height:38px;background-color: #64a131;padding: 0;border-radius: 4px;border:none;line-height:38px;text-align: center;color:#fff;text-decoration: none;font-size: 18px;margin-right: -43px;}
+        .load_con .load_right .login a{cursor:pointer;margin-right: 14px;display: block;width:143px;height:38px;background-color: #f5ffed;border:1px solid #64a131;padding: 0;border-radius: 4px;line-height:38px;text-align: center;color:#7bae55;text-decoration: none;font-size: 18px;}
+        .load_con .load_right .zhuce .true{z-index:8;position: absolute;top:10px;right:0px;width:22px;height:22px;background: url(images/icons.png) no-repeat -12px -360px;}
+        .load_con .load_right .zhuce .false{z-index:8;position: absolute;top:10px;right:0px;width:22px;height:22px;background: url(images/icon-error.png) no-repeat;}
+        .load_con .load_right .zhuce .yzmimg{display:inline-block;width:85px;height:40px;position:absolute;top:0;right:69px; background-image: -webkit-gradient(linear, 300 390, 0 bottom, from(rgba(122, 134, 100, 1)), to(rgba(11, 151, 51, 1)));  -webkit-background-clip:text;  -webkit-text-fill-color:transparent;font-size: 18px;text-align: center;line-height: 40px;}
+        .load_con .load_right .zhuce .update{  position: absolute;top:9px;right:27px;width:30px;height: 20px;background: url("images/icons.png") no-repeat -7px -325px;  cursor: pointer;}
+        .load_con .load_right .zhuce .tel_yz{background-color:#eee;}
+        .load_con .load_right .zhuce .send{
+            position: absolute;top:1px;right:41px;width:98px;height:38px;font-size: 14px;text-align: center;line-height: 38px;background-color: #eaeaea;cursor: pointer;}
+    </style>
+</head>
+<body ng-app="myApp"  ng-controller="myController">
+<!--头部-->
+<div id="header">
+    <div></div>
+    <div></div>
+    <div></div>
+    <!-- 最上面的部分 -->
+    <div class="top">
+        <div class="container">
+            <div class="top_left">
+                <div class="top_down">
+                    <i class="ico che"></i>
+                    <span>上海</span>
+                    <i class="ico san"></i>
+                    <div class="down_text">
+                        <h3>热门城市：</h3>
+                        <p>
+                            <a href="###" ng-click="tih($event)">上海</a>
+                            <a href="###" ng-click="tih($event)">广州</a>
+                            <a href="###" ng-click="tih($event)">北京</a>
+                            <a href="###" ng-click="tih($event)">苏州</a>
+                            <a href="###" ng-click="tih($event)">南京</a>
+                            <a href="###" ng-click="tih($event)">深圳</a>
+                        </p>
+                        <h3>选择城市：</h3>
+                        <ul>
+                            <li><a href="###" ng-click="tih($event)">上海</a></li>
+                            <li><a href="###" ng-click="tih($event)">上海崇明</a></li>
+                            <li>
+                                <a href="###" class="c_down">江苏</a>
+                                <ul class="down_list">
+                                    <li><a href="###" ng-click="tih($event)">常州</a></li>
+                                    <li><a href="###" ng-click="tih($event)">淮安</a></li>
+                                    <li><a href="###" ng-click="tih($event)">连云港</a></li>
+                                    <li><a href="###" ng-click="tih($event)">南京</a></li>
+                                    <li><a href="###" ng-click="tih($event)">南通</a></li>
+                                    <li><a href="###" ng-click="tih($event)">苏州</a></li>
+                                    <li><a href="###" ng-click="tih($event)">泰州</a></li>
+                                    <li><a href="###" ng-click="tih($event)">无锡</a></li>
+                                    <li><a href="###" ng-click="tih($event)">宿迁</a></li>
+                                    <li><a href="###" ng-click="tih($event)">徐州</a></li>
+                                    <li><a href="###" ng-click="tih($event)">盐城</a></li>
+                                    <li><a href="###" ng-click="tih($event)">扬州</a></li>
+                                    <li><a href="###" ng-click="tih($event)">镇江</a></li>
+                                </ul>
+                                <i class="arrows"></i>
+                            </li>
+                            <li>
+                                <a href="###" class="c_down">浙江</a>
+                                <ul class="down_list">
+                                    <li><a href="###" ng-click="tih($event)">杭州</a></li>
+                                    <li><a href="###" ng-click="tih($event)">湖州</a></li>
+                                    <li><a href="###" ng-click="tih($event)">嘉兴</a></li>
+                                    <li><a href="###" ng-click="tih($event)">金华</a></li>
+                                    <li><a href="###" ng-click="tih($event)">丽水</a></li>
+                                    <li><a href="###" ng-click="tih($event)">宁波</a></li>
+                                    <li><a href="###" ng-click="tih($event)">衢州</a></li>
+                                    <li><a href="###" ng-click="tih($event)">绍兴</a></li>
+                                    <li><a href="###" ng-click="tih($event)">台州</a></li>
+                                    <li><a href="###" ng-click="tih($event)">温州</a></li>
+                                    <li><a href="###" ng-click="tih($event)">舟山</a></li>
+                                </ul>
+                                <i class="arrows"></i>
+                            </li>
+                            <li>
+                                <a href="###" class="c_down">安徽</a>
+                                <ul class="down_list">
+                                    <li><a href="###" ng-click="tih($event)">安庆</a></li>
+                                    <li><a href="###" ng-click="tih($event)">蚌埠</a></li>
+                                    <li><a href="###" ng-click="tih($event)">亳州</a></li>
+                                    <li><a href="###" ng-click="tih($event)">池州</a></li>
+                                    <li><a href="###" ng-click="tih($event)">滁州</a></li>
+                                    <li><a href="###" ng-click="tih($event)">阜阳</a></li>
+                                    <li><a href="###" ng-click="tih($event)">合肥</a></li>
+                                    <li><a href="###" ng-click="tih($event)">淮北</a></li>
+                                    <li><a href="###" ng-click="tih($event)">淮南</a></li>
+                                    <li><a href="###" ng-click="tih($event)">黄山</a></li>
+                                    <li><a href="###" ng-click="tih($event)">六安</a></li>
+                                    <li><a href="###" ng-click="tih($event)">马鞍山</a></li>
+                                    <li><a href="###" ng-click="tih($event)">铜陵</a></li>
+                                    <li><a href="###" ng-click="tih($event)">芜湖</a></li>
+                                    <li><a href="###" ng-click="tih($event)">宿州</a></li>
+                                    <li><a href="###" ng-click="tih($event)">宣城</a></li>
+                                </ul>
+                                <i class="arrows"></i>
+                            </li>
+                            <li><a href="###" ng-click="tih($event)">北京</a></li>
+                            <li><a href="###" ng-click="tih($event)">天津</a></li>
+                            <li>
+                                <a href="###" class="c_down">河北</a>
+                                <ul class="down_list">
+                                    <li><a href="###" ng-click="tih($event)">石家庄</a></li>
+                                    <li><a href="###" ng-click="tih($event)">廊坊</a></li>
+                                    <li><a href="###" ng-click="tih($event)">承德</a></li>
+                                    <li><a href="###" ng-click="tih($event)">唐山</a></li>
+                                    <li><a href="###" ng-click="tih($event)">保定</a></li>
+                                    <li><a href="###" ng-click="tih($event)">沧州</a></li>
+                                    <li><a href="###" ng-click="tih($event)">邯郸</a></li>
+                                    <li><a href="###" ng-click="tih($event)">衡水</a></li>
+                                    <li><a href="###" ng-click="tih($event)">秦皇岛</a></li>
+                                    <li><a href="###" ng-click="tih($event)">邢台</a></li>
+                                    <li><a href="###" ng-click="tih($event)">张家口</a></li>
+                                </ul>
+                                <i class="arrows"></i>
+                            </li>
+                            <li>
+                                <a href="###" class="c_down">广东</a>
+                                <ul class="down_list">
+                                    <li><a href="###" ng-click="tih($event)">深圳</a></li>
+                                    <li><a href="###" ng-click="tih($event)">广州</a></li>
+                                    <li><a href="###" ng-click="tih($event)">珠海</a></li>
+                                    <li><a href="###" ng-click="tih($event)">汕头</a></li>
+                                    <li><a href="###" ng-click="tih($event)">韶关</a></li>
+                                    <li><a href="###" ng-click="tih($event)">佛山</a></li>
+                                    <li><a href="###" ng-click="tih($event)">江门</a></li>
+                                    <li><a href="###" ng-click="tih($event)">湛江</a></li>
+                                    <li><a href="###" ng-click="tih($event)">茂名</a></li>
+                                    <li><a href="###" ng-click="tih($event)">肇庆</a></li>
+                                    <li><a href="###" ng-click="tih($event)">惠州</a></li>
+                                    <li><a href="###" ng-click="tih($event)">梅州</a></li>
+                                    <li><a href="###" ng-click="tih($event)">汕尾</a></li>
+                                    <li><a href="###" ng-click="tih($event)">河源</a></li>
+                                    <li><a href="###" ng-click="tih($event)">阳江</a></li>
+                                    <li><a href="###" ng-click="tih($event)">清远</a></li>
+                                    <li><a href="###" ng-click="tih($event)">东莞</a></li>
+                                    <li><a href="###" ng-click="tih($event)">中山</a></li>
+                                    <li><a href="###" ng-click="tih($event)">揭阳</a></li>
+                                    <li><a href="###" ng-click="tih($event)">云浮</a></li>
+                                    <li><a href="###" ng-click="tih($event)">潮州</a></li>
+                                </ul>
+                                <i class="arrows"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <span>满百包邮（环郊内）</span>
+                <a href="xyd.html">星夜达</a>
+            </div>
+            <div class="top_right">
+                <ul>
+                    <li class="fir" ng-hide="bol">
+                        <a href="load.html" class="fir_a">[ 登录 ]</a>
+                        ，
+                        <a href="regist.html">[ 注册有惊喜 ]</a>
+                    </li>
+                    <li ng-show="bol">
+                        <span>您好，<a href="person1.html" ng-bind="tel"></a></span>
+                        <a href="#" ng-click="clearCookie()">退出</a>
+                    </li>
+                    <li>|</li>
+                    <li class="gog">
+                        果园公告
+                        <div class="list-unstyled">
+                            <ul>
+                                <li>
+                                    <a href="notices.html">全仓充值活动调整公告</a>
+                                    <em class="new">new</em>
+                                </li>
+                                <li>
+                                    <a href="notices.html">全仓充值活动调整公告</a>
+                                    <em class="new">new</em>
+                                </li>
+                                <li>
+                                    <a href="notices.html">全仓充值活动调整公告</a>
+                                    <em class="new">new</em>
+                                </li>
+                                <li>
+                                    <a href="notices.html">全仓充值活动调整公告</a>
+                                    <em class="new">new</em>
+                                </li>
+                            </ul>
+                            <p><a href="notice.html">查看更多 ></a></p>
+                        </div>
+                    </li>
+                    <li>|</li>
+                    <li><a href="person8.html">劵卡兑换</a></li>
+                    <li>|</li>
+                    <li class="phone">
+                        <i class="ico shoji"></i>
+                        手机果园
+                        <div class="list-unstyled">
+                            <p>
+                                <a href="###">下载果园app，</a>
+                                即享果园特价商品
+                            </p>
+                            <dl>
+                                <dt>
+                                    <img src="images/guan_ewcode1.jpg" alt="">
+                                </dt>
+                                <dd>
+                                    <a href="###" class="btn"><img src="images/guan_btn01.jpg" alt=""></a>
+                                    <a href="###" class="btn"><img src="images/guan_btn02.jpg" alt=""></a>
+                                </dd>
+                            </dl>
+                            <dl class="m_b">
+                                <dt>
+                                    <img src="images/guan_ewcode2.jpg" alt="">
+                                </dt>
+                                <dd>
+                                    <a href="###" class="f_a">关注果园微信</a>
+                                    <p>优惠信息实时掌握</p>
+                                </dd>
+                            </dl>
+                        </div>
+                    </li>
+                    <li>|</li>
+                    <li><b><i class="ico kefu"></i>400-720-0770</b></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- nav -->
+    <div class="nav">
+        <div class="container">
+            <a href="index.html" class="logo"></a>
+            <!-- 清浮动 -->
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<!--注册会员-->
+<!--注册会员-->
+<div class="load_con">
+    <p class="member">注册会员</p>
+    <div class="loading">
+        <div class="load_left pull_left">
+            <img src="images/huiyuan.jpg" alt="">
+        </div>
+        <div class="load_right pull_right">
+            <form class="zhuce" name="myForm" novalidate>
+                <ul>
+                    <li>
+                        <div class="tel pull_left"><span>手机号</span></div>
+                        <div class="tel_input pull_right">
+                            <input type="text" ng-pattern="/^1[3458]{1}[0-9]{9}$/" ng-model="user.pattern" name="tel" id="tel">
+                            <span ng-show="myForm.tel.$dirty && myForm.tel.$valid" class='true'></span>
+                            <span ng-hide="myForm.tel.$valid " class='false'></span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pass pull_left"><span>密码</span></div>
+                        <div class="pass_input pull_right">
+                            <!--密码验证要求6-20字母数字下划线-->
+                            <input ng-pattern="/^(\w){3,20}$/" type="password" class="inputs" ng-model="pass.pattern" name="pass" id="pass">
+                            <span ng-show="myForm.pass.$dirty && myForm.pass.$valid" class='true'></span>
+                            <span ng-hide="myForm.pass.$valid " class='false'></span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pass pull_left"><span>确认密码</span></div>
+                        <div class="pass_input pull_right">
+                            <input type="password" ng-pattern="/^(\w){3,20}$/" class="inputs" ng-model="pass2.parent" name="pass2">
+                            <span ng-show="myForm.pass2.$dirty && myForm.pass2.$valid" class='true'></span>
+                            <span ng-hide="myForm.pass2.$valid " class='false'></span>
+                        </div>
+                    </li>
+                    <!--验证码-->
+                    <li>
+                        <div class="pass pull_left"><span>验证码</span></div>
+                        <div class="yzm pull_left">
+                            <input type="text" class="inputs">
+                            <span class="yzmimg"></span>
+                            <span class="update"></span>
+                        </div>
+                    </li>
+                    <!--手机验证码-->
+                    <li>
+                        <div class="pass pull_left"><span>手机验证码</span></div>
+                        <div class="pass_input pull_right">
+                            <input class="tel_yz" type="text" ng-model="telyzm" name="telyzm">
+                            <div class="send">
+                                <span>发送验证码</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="pull_right">
+                        <div class="regist pull_right">
+                            <a ng-click="zhuce()">注册</a>
+                        </div>
+                        <div class="login pull_right">
+                            <a href="load.html">会员登录</a>
+                        </div>
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+    <!--尾部-->
+    <!-- footer -->
+    <div class="foot">
+        <div class="container content">
+            <ul class="ul">
+                <li class="fo_img1"></li>
+                <li class="fo_img2"></li>
+                <li class="fo_img3"></li>
+                <li class="fo_img4"></li>
+            </ul>
+            <div class="footbar">
+                <div class="block1 pull_left">
+                    <div class="logo"></div>
+                    <div class="tel">
+                        <img src="./images/guan_tel.png" alt="">
+                    </div>
+                    <div class="font-gray">
+                        <span class="f1">电话客服：</span><span class="f2">09:00 - 21:00</span>
+                        <br>
+                        <span class="f1">在线客服：</span><span class="f2">08:00 - 24:00</span>
+                    </div>
+                </div>
+                <ul class="block2 pull_left">
+                    <li>
+                        <img src="./images/guan_ewcode1.jpg" alt="">
+                        <span>天天果园官方微信</span>
+                    </li>
+                    <li>
+                        <img src="./images/guan_ewcode2.jpg" alt="">
+                        <span>天天果园APP</span>
+                    </li>
+                </ul>
+                <ul class="block3 pull_left">
+                    <li>
+                        <h4>购物指南</h4>
+                        <a href="help.html?id=0">新用户注册</a>
+                        <a href="help.html?id=1">在线下单</a>
+                        <a href="help.html?id=2">支付方式</a>
+                    </li>
+                    <li>
+                        <h4>配送说明</h4>
+                        <a href="help.html?id=3">运费说明</a>
+                        <a href="help.html?id=4">运费方式</a>
+                        <a href="help.html?id=5">发票说明</a>
+                    </li>
+                    <li>
+                        <h4>售后服务</h4>
+                        <a href="help.html?id=6">退换货规则</a>
+                        <a href="help.html?id=7">服务保障承诺</a>
+                        <a href="help.html?id=8">验货与签收</a>
+                    </li>
+                    <li>
+                        <h4>企业服务</h4>
+                        <a href="help.html?id=9">企业订购</a>
+                        <a href="help.html?id=10">公司简介</a>
+                        <a href="help.html?id=11">定制专区</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="text-right">
+                <p class="p1">版权所有 ©2017上海天天鲜果电子商务有限公司&nbsp;&nbsp;保留所有权利 |<a href="#">沪ICP备12042163</a>
+                </p>
+                <p class="p2">天天果园&nbsp;&nbsp;鲜果网购</p>
+                <div>
+                    <a href="https://www.sgs.gov.cn/lz/licenseLink.do?method=licenceView&amp;entyId=dov73ne26zbqpug3tq1p70teyahin76ot0">
+                        <img class="fo_logo" src="http://img9.fruitday.com/guan_shgs.gif" border="0">
+                    </a>
+                    <a class="fo_logo2" href="http://shwg.dianping.com/index.html"><img src="http://img9.fruitday.com/guan_wgdjp.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- 弹窗 -->
+<div id="_alert">
+    <div class="al_box">
+        <p>
+            <i class="iconfont">&#xe60e;</i>
+        </p>
+        <div style="text-align: center;background: #fff;padding-top: 20px;">
+            <span ng-bind="status.msg" ></span>
+        </div>
+        <div class="btn_box">
+            <a href="###" class="true">确定</a>
+            <a href="###" class="false">取消</a>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/common.js"></script>
+<script type="text/javascript">
+
+    //   验证码验证
+    createCode()
+    function createCode(){
+//        console.log("2")
+        var code="";
+        var codeLength = 4;//验证码的长度
+        var random = [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R', 'S','T','U','V','W','X','Y','Z'];//随机数
+        for(var i = 0; i <codeLength; i++) {
+            var index = Math.floor(Math.random()*56);
+            code += random[index];
+        }
+        $(".yzmimg").html(code);
+    };
+    $(".update").click(function(){
+        createCode()
+    });
+//手机验证码的发送
+    $('.send').click(function(){
+        setTime(60);
+    })
+
+    function setTime(time){
+        var _btn = $('.send');
+        if(!isNaN(time) && time > 0){
+            _btn.html(time);
+            _btn.attr('disabled',true);
+            var b = setInterval(function(){
+                time--;
+                if(time <= 0){
+                    _btn.html('重新发送');
+                    _btn.attr('disabled',false);
+                    clearInterval(b);
+                }else{
+                    _btn.html(time);
+                }
+            },1000);
+        }else{
+            alert("时间有误")
+        }
+    }
+
+//    angular.js
+    var app=angular.module("myApp",[]);
+    app.controller("myController",function ($scope,$http) {
+
+        $scope.flag = false;
+        if(getCookie(status)){
+            $scope.flag = true;
+            $scope.names = getCookie(name);
+        }
+//注册
+    $scope.zhuce=function () {
+           $http.get("http://10.80.11.241:8080/regist",{
+               params:{
+                   tel:$scope.user.pattern,
+                   pass:$scope.pass.pattern
+               }
+           }).then(function (res) {
+                $scope.status = res.data;
+                console.log($scope.status)
+                _alertFn(function () {
+                    setCookie('name',$scope.user.pattern)
+                    setCookie('sta',"true");
+                    window.location.href = "index.html"
+                },null)
+           },function (err) {
+               console.log(err);
+           })
+       }
+    })
+</script>
+
+</html>

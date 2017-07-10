@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>具体物品购买页</title>
+    <link rel="shortcut icon" href="http://www.fruitday.com/favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <style>
+        *{box-sizing: border-box;}
+        .shopcar{margin-top: 50px;}
+        .shopcar .container{ overflow: hidden;}
+        .shopcar .bread{margin-bottom: 20px;}
+        .lvse{color: #64a131;}
+        .shopcar .bread strong a:hover{text-decoration: none;}
+        .shopcar .MyFocus{width:700px;height:560px;position: relative;overflow: hidden}
+        .shopcar .dianul{width:140px;height:560px;padding:0;margin-bottom: 0px;}
+        .shopcar .dianul li{width:138px;height: 138px;cursor: pointer;position: relative;margin-bottom: 2px;}
+        .shopcar .dianul li img{position:absolute;top:0;left:0;width:136px;height: 136px;}
+        .cur{border:1px solid #f6af0d}
+        .shopcar .tuul{width:560px;height:560px;position: relative;}
+        .shopcar .tuul li{width:100%; height:100%; position: absolute; top:0; left:0;}
+        .shopcar .tuul img{width:100%;}
+        .shopcar .product_info{padding-left: 28px;width:580px;padding-top: 20px;
+            position: relative;}
+        .shopcar .product_info  .country{width:532px;overflow: hidden;}
+        .shopcar .product_info  .country .guoqi{width:44px;height:30px;margin-right:12px;margin-top:5px;background: url("images/icons.png") no-repeat;}
+        .shopcar .product_info  .country .name{width:460px;}
+        .shopcar .product_info  .country .name h3{color:#555;line-height: 40px;width:100%;overflow: hidden;text-overflow: ellipsis;font-size: 24px;font-weight: 500}
+        .shopcar .product_info  .country .name p{height:48px;text-overflow: ellipsis;overflow: hidden;font-size: 16px;line-height: 48px;color:#999;}
+        .shopcar .price_info{position: relative;border-bottom:1px solid #ddd;}
+        .shopcar .price_info .price0{position: relative;width:552px;height: 75px;padding-left: 10px;background: url("images/icons.png") no-repeat 0 -48px;margin-right: 20px;bottom: 20px;top:20px;}
+        .shopcar .price_info .price0 .box{  position: absolute;top:25px;}
+        .shopcar .price_info .price0 .box h5{  color: #999;width:60px;margin: 0;font-weight: 300;}
+        .shopcar .price_info .price0 .box .pr{font-size:24px;width:24px;color:#64a131;font-weight: bold;margin-top: -10px;}
+        .shopcar .price_info .price0 .box .old_pr{color:#999;width:68px;padding-bottom: 10px;margin-left:111px;}
+        .shopcar .price_info .price0 .box .old_pr s{padding-left:10px;}
+        .shopcar .price_info .price0 .box2{  position: relative;width:56px;
+            height:26px;margin-top: 25px;background:url("images/icons.png") no-repeat -64px -8px;}
+        .shopcar .price_info .price0 .box2 .weixin{ display:none;position:absolute;top:-150px;right:25px; z-index: 99;}
+        .shopcar .price_info .price0 .box2:hover .weixin{display: block;}
+        .shopcar .price_info .guige{margin-bottom: 22px;padding-left: 10px;overflow: hidden;margin-top: 40px;}
+        .shopcar .price_info .guige h5{width:60px;color:#999;font-weight: 300;margin-top: 4px;}
+        .shopcar .price_info .guige .zhuang span{display:block;padding-left: 20px;padding-right: 20px;height:26px;line-height:26px;margin-right: 10px;text-align: center;font-size: 12px;border:1px solid #ddd;  cursor: pointer;background-color: #64a131;color:white;font-size: 14px;}
+        .shopcar .price_info .send{color:#999;margin-bottom: 21px;padding-left:10px;}
+        .shopcar .price_info .send h5{width:60px;font-weight:300;padding-top: 10px;}
+        .shopcar .price_info .send .btn_group{height:40px;border:1px solid #ddd;
+            position: relative;}
+        .shopcar .price_info .send .btn{color:#333;font-size: 14px;padding: 10px 10px;}
+        .shopcar .price_info .send .jiantou{  display: block;width:20px;height:20px;background: url("images/icons.png") no-repeat -527px -193px;margin-left: 10px}
+        .shopcar .price_info .send .have{  color: #64a131;width:200px;padding-left: 10px;padding-top: 10px;}
+        .shopcar .price_info .send .menu{position: absolute;top:39px;left:-45px;border:1px solid #ddd;width:352px;padding: 15px;box-shadow: 0 0 5px #ddd;  z-index: 1111;background-color: white}
+        .shopcar .price_info .send .menu_content{position: relative;margin-bottom: 10px;}
+        .shopcar .price_info .send .close{  position: absolute;z-index: 3;top:-10px;left:340px;width:21px;height:21px;background: url("images/delete.png") no-repeat;cursor: pointer;}
+        .shopcar .price_info .send .tab{width:100%;height: 26px;float:left;border-bottom: 2px solid #64a031;overflow: visible;}
+        .province_item,.city_item{text-align: center;padding: 0;}
+        .province_item a, .city_item a{ font-weight:bold;border-top:2px solid #64a031;border-left:2px solid #64a031;border-right:2px solid #64a031;display:block;width:76px;height:26px;border-bottom:2px solid white;position: relative;margin-right: 3px;color:#555;text-align: center;cursor: pointer;line-height: 20px;padding:0 20px 0 10px;}
+        .province_item a:hover,.city_item a:hover{text-decoration:none;height:26px; background-color: #fff;border-bottom:2px solid white;border-top:2px solid #64a031;border-left:2px solid #64a031;border-right:2px solid #64a031;}
+        .province_item a i,.city_item a i{position: absolute;right:4px;top:8px;display: block;width:7px;
+            height:5px;background: url("images/fd-stock.png") no-repeat 0 -35px;}
+        .area_list,.area_list2{padding-top: 5px;}
+        .area_list li,.area_list2 li{padding: 3px 0 3px 3px;width:80px;float:left;text-align: center;}
+        .area_list li:hover,.area_list2 li:hover{color:white;background-color: #64a131;}
+        .area_list2 ul,.menu,.city_item{display: none}
+        .shopcar .num{height:24px;border:1px solid #ddd;border-radius: 1px}
+        .shopcar .num .rr{display:block;width:28px;height: 22px;background-color: #eee;color:#a6a6a6;text-align: center;line-height: 22px;cursor: pointer}
+        .shopcar .num .n_num{text-align: center;line-height: 22px;display:block;width:28px;height: 22px;color:black}
+        .shopcar .nums{position: relative;margin-bottom: 30px;padding-left: 10px;}
+        .shopcar .nums h5{  color: #999;width:60px;font-weight: 200;}
+        .shopcar .buy{margin-bottom: 99px;}
+        .shopcar .buy a{display: block;width:160px;height:36px;font-size: 16px;line-height:36px;border-radius: 4px;text-align: center;}
+        .shopcar .buy a:hover{text-decoration: none;}
+        .shopcar .fr_buy{margin-right: 10px;padding-left: 70px;}
+        .shopcar .fr_buy a{color:#7daf57;background: #f5ffed;  border:1px solid #64a131;}
+        .shopcar .fr_add a{color:#eff4ec;background: #64a131;  border:1px solid #64a131;}
+        .shopcar .comment{margin-top: 26px;}
+        .shopcar .comment div{width:50%;margin-bottom: 10px;}
+        .shopcar .comment h5{display:block;font-size: 14px;line-height: 20px;margin-right: 20px;color:#999;}
+        .shopcar .comment span{width:70%;text-decoration: none;overflow: hidden;color:#555;}
+        .shopcar .h68{width: 1280px;height: 68px;}
+        .shopcar .ass{width:1290px;}
+        .shopcar .ass .leftpart{width:1002px;border:1px solid #ccc;}
+        .shopcar .ass .rightpart{width:278px;padding-left:20px;}
+        .shopcar .ass .leftpart .good_details{width:1000px;background-color: #f1f1f1;}
+        .shopcar .ass .leftpart .good_comments{width:1000px;}
+        .shopcar .ass .leftpart .good_details .curs{height:39px;border-top:3px solid #64a131;
+            padding:0 36px;background-color: #fff;text-align: center;line-height: 39px;}
+        .shopcar .ass .leftpart .good_details span{
+            color: #555;height:39px;padding: 0 38px;text-align: center;line-height: 39px;border-right: 1px solid #ccc;margin-top: -1px;}
+        .shopcar .ass .leftpart .good_details .ee{color:white;  display: block;width:172px;  height:38px; font-size:16px;text-align: center;line-height: 38px;background: #64a131;border:0;position: relative;}
+        .shopcar .ass .leftpart .good_details i{
+            display: block;width:20px;height:20px;margin-top: -29px;margin-left: 14px;background: url(images/icons.png) no-repeat -528px -6px;
+        }
+        .shopcar .ass .leftpart .thefruit{ right:0px; bottom:-168px;width:358px;  padding:14px;height:168px;background-color: #fff;border:1px solid #ccc;position: absolute;z-index: 45;}
+        .shopcar .ass .leftpart .thefruit img{width:140px;height:140px}
+        .shopcar .ass .leftpart  .fruiteright{padding-left: 14px;}
+        .shopcar .ass .leftpart  .fruiteright h5{text-align: left;line-height: 20px;color:#555;white-space: nowrap;text-overflow: ellipsis;font-weight: 300;}
+        .shopcar .ass .leftpart .fruiteright p{text-align: left;font-size: 14px;line-height: 31px; color:#999;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
+        .shopcar .ass .leftpart .fruiteright .anniu{width:90px;height:30px;background-color: #64a131;border-radius: 4px;cursor: pointer;font-size: 16px;line-height: 30px;margin-top: 20px;}
+        .app-detail img{width:100%;}
+        .shopcar .detail_title{width:1000px;padding-top: 46px;padding-bottom: 50px;}
+        .shopcar .no2 .detail_title{width:1000px;padding-top: 46px;padding-bottom: 50px;}
+        .shopcar .no2 .detail01{width:178px;height: 100px;padding: 21px 20px;text-align: center;}
+        .shopcar .no2 .detail01 .p1{color: #f6ab00;}
+        .shopcar .no2 .detail02{width:377px;padding: 11px 38px;padding-bottom: 0px;border-right:1px solid #ccc;border-left: 1px solid #ccc;}
+        .pl_user{width:300px;margin-bottom: 16px;}
+        .shopcar .no2 .detail02 .dengji{width:196px;height:14px;border-radius: 10px;background-color: #ddd;margin-left: 10px;margin-right: 10px;}
+        .shopcar .no2 .detail02 .dengji .dengji_another{height:13px;border-radius:11px;border-radius: 10px;background-color: #f6ab00;}
+        .shopcar .no2 .detail02 .dengji .jc1{width:96%;}
+        .shopcar .no2 .detail02 .dengji .jc2{width:16%;}
+        .shopcar .no2 .detail03{width:440px;padding-top: 20px;padding-left: 38px;text-align: center}
+    .detail_user_title{width: 1000px;  height: 38px;  padding-left: 28px;  font: 14px/100% 'Hiragino Sans GB W6','Microsoft YaHei',sans-serif;
+        color: #555555;  line-height: 38px;  border: 1px solid #ccc;  border-left: none;  border-right: none;  background-color: #eeeeee;}
+        .detail_user_title li{padding-right: 30px;cursor:pointer;font-size: 14px;}
+        .detail_user_title li s{    display: inline-block;  width: 14px;  height: 16px;  padding-right: 25px; }
+        .detail_user_title .li1 s{ background: url("images/icons.png") no-repeat -532px -151px;}
+        .detail_user_title .li2 s{ background: url("images/icons.png") no-repeat -532px -170px;}
+        .detail_user_title .li3 s{ background: url("images/icons.png") no-repeat -532px -170px;}
+        .detail_user_title .li4 s{ background: url("images/icons.png") no-repeat -532px -170px;}
+        .shopcar .detail_allsays{width:1000px;}
+        .detail_user_says{width:1000px;padding-top: 15px;border:1px solid #ccc;}
+        .detail_user_left{width:120px;padding-left: 30px;}
+        .detail_user_right{padding-top: 10px;width:840px;}
+        .detail_user_left img{width:88px;height:88px;}
+        .detail_user_left p{padding-top: 12px;text-align: center;padding-bottom: 14px;}
+        .detail_user_right ul li{width:100%;margin-bottom: 15px;}
+        .star{display: inline-block;width: 18px;height:18px;background: url("images/icons.png") no-repeat -7px -167px;}
+        .detail_user_right .pp{width:50px;}
+        .pt{font-size: 12px;padding-left: 50px;margin-right: 10px;}
+        .rightpart .h5{color:#64a131;line-height: 39px;border-bottom: 1px solid #ccc;font-weight: 200}
+        .rightpart ul li{width:260px;height:91px;padding:13px 0 8px 0;border-bottom: 1px solid #ccc;}
+        .rightpart ul li a{ color:#999;overflow: hidden}
+        .rightpart ul li a img{width:70px;height:70px;}
+        .rightpart .pull_con{float:left;padding-left: 10px;}
+        .no2{display: none}
+        .prop_table{border:1px solid #d8d8d8;}
+        .prop_table dl{border:1px solid #d8d8d8;font-size: 14px;line-height: 17px;width:100%;font-weight: lighter;display: -webkit-box;}
+        .prop_table dl:nth-child(odd){background-color: #f7f7f7}
+        .prop_table dl dt{width:86px;text-align: left;padding: 9px 12px;font-weight: bold;    line-height: 1.42857143;}
+        .prop_table dl dd{border-left:1px solid #d8d8d8;
+            padding:9px 12px;    line-height: 1.42857143;}
+        .thefruit{display: none;}
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="detail">
+    <!--头部-->
+    <div id="header">
+        <!-- 最上面的部分 -->
+        <div class="top">
+            <div class="container">
+                <div class="top_left">
+                    <div class="top_down">
+                        <i class="ico che"></i>
+                        <span>上海</span>
+                        <i class="ico san"></i>
+                        <div class="down_text">
+                            <h3>热门城市：</h3>
+                            <p>
+                                <a href="###" ng-click="tih($event)">上海</a>
+                                <a href="###" ng-click="tih($event)">广州</a>
+                                <a href="###" ng-click="tih($event)">北京</a>
+                                <a href="###" ng-click="tih($event)">苏州</a>
+                                <a href="###" ng-click="tih($event)">南京</a>
+                                <a href="###" ng-click="tih($event)">深圳</a>
+                            </p>
+                            <h3>选择城市：</h3>
+                            <ul>
+                                <li><a href="###" ng-click="tih($event)">上海</a></li>
+                                <li><a href="###" ng-click="tih($event)">上海崇明</a></li>
+                                <li>
+                                    <a href="###" class="c_down">江苏</a>
+                                    <ul class="down_list">
+                                        <li><a href="###" ng-click="tih($event)">常州</a></li>
+                                        <li><a href="###" ng-click="tih($event)">淮安</a></li>
+                                        <li><a href="###" ng-click="tih($event)">连云港</a></li>
+                                        <li><a href="###" ng-click="tih($event)">南京</a></li>
+                                        <li><a href="###" ng-click="tih($event)">南通</a></li>
+                                        <li><a href="###" ng-click="tih($event)">苏州</a></li>
+                                        <li><a href="###" ng-click="tih($event)">泰州</a></li>
+                                        <li><a href="###" ng-click="tih($event)">无锡</a></li>
+                                        <li><a href="###" ng-click="tih($event)">宿迁</a></li>
+                                        <li><a href="###" ng-click="tih($event)">徐州</a></li>
+                                        <li><a href="###" ng-click="tih($event)">盐城</a></li>
+                                        <li><a href="###" ng-click="tih($event)">扬州</a></li>
+                                        <li><a href="###" ng-click="tih($event)">镇江</a></li>
+                                    </ul>
+                                    <i class="arrows"></i>
+                                </li>
+                                <li>
+                                    <a href="###" class="c_down">浙江</a>
+                                    <ul class="down_list">
+                                        <li><a href="###" ng-click="tih($event)">杭州</a></li>
+                                        <li><a href="###" ng-click="tih($event)">湖州</a></li>
+                                        <li><a href="###" ng-click="tih($event)">嘉兴</a></li>
+                                        <li><a href="###" ng-click="tih($event)">金华</a></li>
+                                        <li><a href="###" ng-click="tih($event)">丽水</a></li>
+                                        <li><a href="###" ng-click="tih($event)">宁波</a></li>
+                                        <li><a href="###" ng-click="tih($event)">衢州</a></li>
+                                        <li><a href="###" ng-click="tih($event)">绍兴</a></li>
+                                        <li><a href="###" ng-click="tih($event)">台州</a></li>
+                                        <li><a href="###" ng-click="tih($event)">温州</a></li>
+                                        <li><a href="###" ng-click="tih($event)">舟山</a></li>
+                                    </ul>
+                                    <i class="arrows"></i>
+                                </li>
+                                <li>
+                                    <a href="###" class="c_down">安徽</a>
+                                    <ul class="down_list">
+                                        <li><a href="###" ng-click="tih($event)">安庆</a></li>
+                                        <li><a href="###" ng-click="tih($event)">蚌埠</a></li>
+                                        <li><a href="###" ng-click="tih($event)">亳州</a></li>
+                                        <li><a href="###" ng-click="tih($event)">池州</a></li>
+                                        <li><a href="###" ng-click="tih($event)">滁州</a></li>
+                                        <li><a href="###" ng-click="tih($event)">阜阳</a></li>
+                                        <li><a href="###" ng-click="tih($event)">合肥</a></li>
+                                        <li><a href="###" ng-click="tih($event)">淮北</a></li>
+                                        <li><a href="###" ng-click="tih($event)">淮南</a></li>
+                                        <li><a href="###" ng-click="tih($event)">黄山</a></li>
+                                        <li><a href="###" ng-click="tih($event)">六安</a></li>
+                                        <li><a href="###" ng-click="tih($event)">马鞍山</a></li>
+                                        <li><a href="###" ng-click="tih($event)">铜陵</a></li>
+                                        <li><a href="###" ng-click="tih($event)">芜湖</a></li>
+                                        <li><a href="###" ng-click="tih($event)">宿州</a></li>
+                                        <li><a href="###" ng-click="tih($event)">宣城</a></li>
+                                    </ul>
+                                    <i class="arrows"></i>
+                                </li>
+                                <li><a href="###" ng-click="tih($event)">北京</a></li>
+                                <li><a href="###" ng-click="tih($event)">天津</a></li>
+                                <li>
+                                    <a href="###" class="c_down">河北</a>
+                                    <ul class="down_list">
+                                        <li><a href="###" ng-click="tih($event)">石家庄</a></li>
+                                        <li><a href="###" ng-click="tih($event)">廊坊</a></li>
+                                        <li><a href="###" ng-click="tih($event)">承德</a></li>
+                                        <li><a href="###" ng-click="tih($event)">唐山</a></li>
+                                        <li><a href="###" ng-click="tih($event)">保定</a></li>
+                                        <li><a href="###" ng-click="tih($event)">沧州</a></li>
+                                        <li><a href="###" ng-click="tih($event)">邯郸</a></li>
+                                        <li><a href="###" ng-click="tih($event)">衡水</a></li>
+                                        <li><a href="###" ng-click="tih($event)">秦皇岛</a></li>
+                                        <li><a href="###" ng-click="tih($event)">邢台</a></li>
+                                        <li><a href="###" ng-click="tih($event)">张家口</a></li>
+                                    </ul>
+                                    <i class="arrows"></i>
+                                </li>
+                                <li>
+                                    <a href="###" class="c_down">广东</a>
+                                    <ul class="down_list">
+                                        <li><a href="###" ng-click="tih($event)">深圳</a></li>
+                                        <li><a href="###" ng-click="tih($event)">广州</a></li>
+                                        <li><a href="###" ng-click="tih($event)">珠海</a></li>
+                                        <li><a href="###" ng-click="tih($event)">汕头</a></li>
+                                        <li><a href="###" ng-click="tih($event)">韶关</a></li>
+                                        <li><a href="###" ng-click="tih($event)">佛山</a></li>
+                                        <li><a href="###" ng-click="tih($event)">江门</a></li>
+                                        <li><a href="###" ng-click="tih($event)">湛江</a></li>
+                                        <li><a href="###" ng-click="tih($event)">茂名</a></li>
+                                        <li><a href="###" ng-click="tih($event)">肇庆</a></li>
+                                        <li><a href="###" ng-click="tih($event)">惠州</a></li>
+                                        <li><a href="###" ng-click="tih($event)">梅州</a></li>
+                                        <li><a href="###" ng-click="tih($event)">汕尾</a></li>
+                                        <li><a href="###" ng-click="tih($event)">河源</a></li>
+                                        <li><a href="###" ng-click="tih($event)">阳江</a></li>
+                                        <li><a href="###" ng-click="tih($event)">清远</a></li>
+                                        <li><a href="###" ng-click="tih($event)">东莞</a></li>
+                                        <li><a href="###" ng-click="tih($event)">中山</a></li>
+                                        <li><a href="###" ng-click="tih($event)">揭阳</a></li>
+                                        <li><a href="###" ng-click="tih($event)">云浮</a></li>
+                                        <li><a href="###" ng-click="tih($event)">潮州</a></li>
+                                    </ul>
+                                    <i class="arrows"></i>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <span>满百包邮（环郊内）</span>
+                    <a href="xyd.html">星夜达</a>
+                </div>
+                <div class="top_right">
+                    <ul>
+                        <li class="fir" ng-hide="bol">
+                            <a href="load.html" class="fir_a">[ 登录 ]</a>
+                            ，
+                            <a href="regist.html">[ 注册有惊喜 ]</a>
+                        </li>
+                        <li ng-show="bol">
+                            <span>您好，<a href="person1.html" ng-bind="tel"></a></span>
+                            <a href="#" ng-click="clearCookie()">退出</a>
+                        </li>
+                        <li>|</li>
+                        <li class="gog">
+                            果园公告
+                            <div class="list-unstyled">
+                                <ul>
+                                    <li>
+                                        <a href="notices.html">全仓充值活动调整公告</a>
+                                        <em class="new">new</em>
+                                    </li>
+                                    <li>
+                                        <a href="notices.html">全仓充值活动调整公告</a>
+                                        <em class="new">new</em>
+                                    </li>
+                                    <li>
+                                        <a href="notices.html">全仓充值活动调整公告</a>
+                                        <em class="new">new</em>
+                                    </li>
+                                    <li>
+                                        <a href="notices.html">全仓充值活动调整公告</a>
+                                        <em class="new">new</em>
+                                    </li>
+                                </ul>
+                                <p><a href="notice.html">查看更多 ></a></p>
+                            </div>
+                        </li>
+                        <li>|</li>
+                        <li><a href="person8.html">劵卡兑换</a></li>
+                        <li>|</li>
+                        <li class="phone">
+                            <i class="ico shoji"></i>
+                            手机果园
+                            <div class="list-unstyled">
+                                <p>
+                                    <a href="###">下载果园app，</a>
+                                    即享果园特价商品
+                                </p>
+                                <dl>
+                                    <dt>
+                                        <img src="images/guan_ewcode1.jpg" alt="">
+                                    </dt>
+                                    <dd>
+                                        <a href="###" class="btn"><img src="images/guan_btn01.jpg" alt=""></a>
+                                        <a href="###" class="btn"><img src="images/guan_btn02.jpg" alt=""></a>
+                                    </dd>
+                                </dl>
+                                <dl class="m_b">
+                                    <dt>
+                                        <img src="images/guan_ewcode2.jpg" alt="">
+                                    </dt>
+                                    <dd>
+                                        <a href="###" class="f_a">关注果园微信</a>
+                                        <p>优惠信息实时掌握</p>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </li>
+                        <li>|</li>
+                        <li><b><i class="ico kefu"></i>400-720-0770</b></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- nav -->
+        <div class="nav">
+            <div class="container">
+                <a href="index.html" class="logo"></a>
+                <div class="cen_nav">
+                    <ul>
+                        <li>
+                            <a href="index.html">
+                                <span>首页</span><br>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="fruit.html">
+                                <span>鲜果</span><br>
+                                <span>Fruit</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="fresh.html">
+                                <span>生鲜</span><br>
+                                <span>Fresh</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="gift.html">
+                                <span>礼品</span><br>
+                                <span>Gift</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="vip.html" class="last">
+                                <span>会员中心</span><br>
+                                <span>VIP Club</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="search">
+                    <div class="s_box">
+                        <div class="search_box">
+                            <input type="text" ng-model="searchValue">
+                            <a href="http://10.80.11.241:8080/search.html?nn={{searchValue}}"><i class="ico search_ico"></i></a>
+                        </div>
+                        <p>
+                            <span class="f_l">热门：</span>
+                            <a href="http://10.80.11.241:8080/search.html?nn=橙">橙</a>
+                            <a href="http://10.80.11.241:8080/search.html?nn=红提">红提</a>
+                            <a href="http://10.80.11.241:8080/search.html?nn=樱桃">樱桃</a>
+                            <a href="http://10.80.11.241:8080/search.html?nn=苹果">苹果</a>
+                        </p>
+                    </div>
+                    <div class="shop">
+                        <span ng-bind="znum">0</span>
+                    </div>
+                </div>
+                <!-- 购物车 -->
+                <div id="shop" ng-click="mShop($event)">
+                    <i class="top_j"></i>
+                    <p id="no_shop" ng-hide="bol">购物车中还没有商品，赶紧选购吧！</p>
+                    <ul id="shop_list" ng-show="bol">
+                        <li ng-repeat="item in data">
+                            <img ng-srcset="{{item.data[0].img[0]}}" alt="">
+                            <div class="g_right">
+                                <p class="s_util" ng-bind="item.data[0].name"></p>
+                                <p class="s_util">￥<span class="u_price" ng-bind="item.data[0].price">60.90</span>/<span class="u_num" ng-bind="item.data[0].num">3</span>个</p>
+                                <div class="num_box">
+                                    <div class="f_l num">
+                                        <span class="sub">-</span>
+                                        <span class="g_num" ng-bind="item.num">1</span>
+                                        <span class="add">+</span>
+                                    </div>
+                                    <span class="f_r">删除</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="zj" ng-show="bol">
+                        <div class="zj_text">
+                            <p class="f_l">总共 <span class="number" ng-bind="znum"></span> 件商品</p>
+                            <p class="f_r">商品小计<span class="price">￥</span><span class="price" ng-bind="zjq"></span></p>
+                        </div>
+                        <a href="###">立即结算</a>
+                    </div>
+                </div>
+                <!-- 清浮动 -->
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <!--物品展示-->
+    <div class="shopcar">
+       <div class="container">
+         <div class="bread">
+             <strong class="lvse">
+                 <a class="lvse" href="index.html">首页</a>
+             </strong>
+             <span class="lvse"> >
+                <a class="lvse" href="##">新鲜水果</a> >
+             </span>
+             <span ng-bind="datas.name"></span>
+         </div>
+         <div class="MyFocus pull_left">
+             <ul class="dianul pull_left">
+                 <li ng-repeat="item in datas.img" ><img ng-mouseenter="overFn($event)" ng-srcset="{{item}}"></li>
+             </ul>
+             <ul class="tuul pull_left">
+                 <li ng-repeat="item in datas.img"><img ng-srcset="{{item}}"></li>
+             </ul>
+         </div>
+           <div class="product_info pull_right">
+               <div class="country">
+                   <!-- 国家 -->
+                   <div class="pull_left guoqi" ng-hide="pla"></div>
+                   <div class="name pull_left">
+                       <h3 ng-bind="datas.name"></h3>
+                       <p ng-bind="datas.kouHao"></p>
+                   </div>
+               </div>
+               <div class="price_info">
+                   <div class="price0">
+                       <div class="box pull_left">
+                           <h5 class="pull_left">果园价</h5>
+                           <span class="pull_left pr">￥</span><span class="pull_left pr" ng-bind="datas.price"></span>
+                       </div>
+                       <div class="box2 pull_right">
+                           <div>
+                               <img class="weixin" src="http://qr.liantu.com/api.php?el=l&amp;w=280&amp;m=5&amp;text=http://m.fruitday.com/detail/index/23177">
+                           </div>
+                       </div>
+                   </div>
+                   <div class="guige">
+                       <h5 class="pull_left">规格</h5>
+                       <div class="zhuang pull_left">
+                           <span ng-bind="datas.num"></span>
+                       </div>
+                   </div>
+                   <div class="send">
+                       <h5 class="pull_left">配送至</h5>
+                       <div class="btn_group pull_left">
+                           <div class="btn">
+                               <p class="pull_left dingwei">上海</p>
+                               <span class="jiantou pull_left"></span>
+                               <div class="clear"></div>
+                           </div>
+                           <div class="menu">
+                               <div class="menu_content clearfix">
+                                   <div class="drop_nav clearfix">
+                                       <ul class="tab clearfix">
+                                           <li class="province_item pull_left">
+                                               <a href="#">
+                                                   <em class="sheng">请选择</em>
+                                                   <i></i>
+                                               </a>
+                                           </li>
+                                           <li class="city_item pull_left">
+                                               <a href="#">
+                                                   <em class="city2">请选择</em>
+                                                   <i></i>
+                                               </a>
+                                           </li>
+                                       </ul>
+                                   </div>
+                                   <div class="fd_area">
+                                       <ul class="area_list">
+                                           <li class="up">上海</li>
+                                           <li class="up">上海崇明</li>
+                                           <li class="jump">江苏</li>
+                                           <li class="jump">浙江</li>
+                                           <li class="jump">安徽</li>
+                                           <li class="up">北京</li>
+                                           <li class="up">天津</li>
+                                           <li class="jump">河北</li>
+                                           <li class="jump">广东</li>
+                                       </ul>
+                                   </div>
+                                   <div class="fd_area">
+                                       <div class="area_list2">
+                                           <ul>
+                                               <li class="up">常州</li>
+                                               <li class="up">淮安</li>
+                                               <li class="up">连云港</li>
+                                               <li class="up">南京</li>
+                                               <li class="up">南通</li>
+                                               <li class="up">苏州</li>
+                                               <li class="up">泰州</li>
+                                               <li class="up">无锡</li>
+                                               <li class="up">宿迁</li>
+                                               <li class="up">徐州</li>
+                                               <li class="up">盐城</li>
+                                               <li class="up">扬州</li>
+                                               <li>镇江</li>
+                                           </ul>
+                                           <ul>
+                                               <li class="up">杭州</li>
+                                               <li class="up">湖州</li>
+                                               <li class="up">嘉兴</li>
+                                               <li class="up">金华</li>
+                                               <li class="up">丽水</li>
+                                               <li class="up">宁波</li>
+                                               <li class="up">衢州</li>
+                                               <li class="up">绍兴</li>
+                                               <li class="up">台州</li>
+                                               <li class="up">温州</li>
+                                               <li class="up">舟山</li>
+                                           </ul>
+                                           <ul>
+                                               <li class="up">安庆</li>
+                                               <li class="up">蚌埠</li>
+                                               <li class="up">亳州</li>
+                                               <li class="up">池州</li>
+                                               <li class="up">滁州</li>
+                                               <li class="up">阜阳</li>
+                                               <li class="up">合肥</li>
+                                               <li class="up">淮北</li>
+                                               <li class="up">淮南</li>
+                                               <li class="up">黄山</li>
+                                               <li class="up">六安</li>
+                                               <li class="up">马鞍山</li>
+                                               <li class="up">铜陵</li>
+                                               <li class="up">芜湖</li>
+                                               <li class="up">宿州</li>
+                                               <li class="up">宣城</li>
+                                           </ul>
+                                           <ul>
+                                               <li class="up">石家庄</li>
+                                               <li class="up">廊坊</li>
+                                               <li class="up">承德</li>
+                                               <li class="up">唐山</li>
+                                               <li class="up">保定</li>
+                                               <li class="up">沧州</li>
+                                               <li class="up">邯郸</li>
+                                               <li class="up">衡水</li>
+                                               <li class="up">秦皇岛</li>
+                                               <li class="up">邢台</li>
+                                               <li class="up">张家口</li>
+                                           </ul>
+                                           <ul>
+                                               <li class="up" >深圳</li>
+                                               <li class="up" >广州</li>
+                                               <li class="up" >珠海</li>
+                                               <li class="up" >汕头</li>
+                                               <li class="up" >韶关</li>
+                                               <li class="up" >佛山</li>
+                                               <li class="up" >江门</li>
+                                               <li class="up" >湛江</li>
+                                               <li class="up" >茂名</li>
+                                               <li class="up" >肇庆</li>
+                                               <li class="up" >惠州</li>
+                                               <li class="up" >梅州</li>
+                                               <li class="up" >汕尾</li>
+                                               <li class="up" >河源</li>
+                                               <li class="up" >阳江</li>
+                                               <li class="up" >清远</li>
+                                               <li class="up" >东莞</li>
+                                               <li class="up" >中山</li>
+                                               <li class="up" >揭阳</li>
+                                               <li class="up" >云浮</li>
+                                               <li class="up" >潮州</li>
+                                           </ul>
+                                       </div>
+                                   </div>
+                                   <div class="fd_area"></div>
+                               </div>
+                               <div class="close"></div>
+                           </div>
+
+                       </div>
+                       <span class="pull_left have">有货</span>
+                       <div class="clear">
+                       </div>
+                   </div>
+                   <div class="nums clearfix">
+                      <h5 class="pull_left">数量</h5>
+                       <div class="pull_left num clearfix">
+                           <span class="sub pull_left rr">-</span>
+                           <span class="n_num pull_left">1</span>
+                           <span class="add pull_left rr">+</span>
+                       </div>
+                   </div>
+                   <div class="buy">
+                       <div class="fr_buy pull_left"><a href="#">立即购买</a></div>
+                       <div class="fr_add pull_left"><a href="#">加入购物车</a></div>
+                   </div>
+               </div>
+               <div class="comment clearfix">
+                   <div class="pull_left clearfix" ng-hide="swt">
+                       <h5 class="pull_left">甜度</h5>
+                       <span class="pull_left"><img ng-srcset="images/circle-{{datas.sweet}}.png" alt=""></span>
+                   </div>
+                   <div class="pull_left clearfix">
+                       <h5 class="pull_left">产地</h5>
+                       <span class="pull_left" ng-bind="datas.place"></span>
+                   </div>
+                   <div class="pull_left clearfix">
+                       <h5 class="pull_left">存储方式</h5>
+                       <span class="pull_left" ng-bind="datas.saveMethod"></span>
+                   </div>
+                   <div class="pull_left clearfix" ng-hide="mes">
+                       <h5 class="pull_left">备注</h5>
+                       <span class="pull_left" ng-bind="datas.message"></span>
+                   </div>
+                   <div class="pull_left clearfix" ng-hide="exp">
+                       <h5 class="pull_left">说明</h5>
+                       <span class="pull_left" ng-bind="datas.explain"></span>
+                   </div>
+                   <div class="pull_left clearfix">
+                       <h5 class="pull_left">商品编号</h5>
+                       <span class="pull_left" ng-bind="datas.skuId"></span>
+                   </div>
+               </div>
+           </div>
+           <div class="h68 clear"></div>
+           <!--评论开始-->
+           <div class="ass clearfix">
+               <div class="leftpart pull_left">
+                   <div class="good_details">
+                       <span class="pull_left curs">商品简介</span>
+                       <span class="pull_left pinglun">顾客评论 <b>(266)</b></span>
+                       <a class="pull_right ee" href="####">加入购物车
+                           <i class="tb-iconfont pull-left"></i>
+
+                           <div class="thefruit ">
+                               <div class="fruiteleft pull_left">
+                                   <img ng-srcset="{{datas.img[0]}}">
+                               </div>
+                               <div class="fruiteright pull_left" >
+                                   <h5 ng-bind="datas.name"></h5>
+                                   <p>￥{{datas.price}}/{{datas.num}}</p>
+                                   <p class="frnum">x1</p>
+                                   <div class="anniu">确认</div>
+                               </div>
+                           </div>
+
+                       </a>
+                       <div class="clear"></div>
+                   </div>
+                   <div class="good_comments">
+                       <div class="prop_table">
+                           <dl>
+                               <dt>产地</dt>
+                               <dd ng-bind="datas.place"></dd>
+                           </dl>
+                           <dl>
+                               <dt>储藏方式</dt>
+                               <dd ng-bind="datas.saveMethod">0及以上存储</dd>
+                           </dl>
+                           <dl>
+                               <dt>水果甜度</dt>
+                               <dd>{{datas.sweet}}星</dd>
+                           </dl>
+                       </div>
+                       <ul  class="no1">
+                           <li>
+                               <div class="app-detail">
+                                   <img ng-repeat="item in datas.img" ng-srcset="{{item}}" alt="">
+                               </div>
+                           </li>
+                       </ul>
+                       <ul class="no2">
+                           <div class="detail_title clearfix">
+                               <div class="detail01 pull_left">
+                                   <p class="p1">94%</p>
+                                   <p class="p2">好评度</p>
+                               </div>
+                               <div class="detail02 pull_left">
+                                   <div class="pl_user clearfix">
+                                       <div class="green_user pull_left">不错呦</div>
+                                       <div class="dengji pull_left">
+                                           <div class="dengji_another jc1 pull_left"></div>
+                                       </div>
+                                       <div class="dengji_num pull_left">96%</div>
+                                   </div>
+                                   <div class="pl_user clearfix">
+                                       <div class="green_user pull_left ">待提高</div>
+                                       <div class="dengji pull_left">
+                                           <div class="dengji_another jc2 pull_left"></div>
+                                       </div>
+                                       <div class="dengji_num pull_left">16%</div>
+                                   </div>
+                                   <div class="pl_user clearfix">
+                                       <div class="green_user pull_left">小失落</div>
+                                       <div class="dengji pull_left">
+                                           <div class="dengji_another jc3 pull_left"></div>
+                                       </div>
+                                       <div class="dengji_num pull_left">0%</div>
+                                   </div>
+                               </div>
+                               <div class="detail03 pull_left">
+                                   <p class="w-375">APP上传图片并晒单即可获得5积分。</p>
+                                   <p>发布评价即可获5积分，</p>
+                               </div>
+                           </div>
+                           <div class="detail_user">
+                               <div class="detail_user_title clearfix">
+                                   <ul>
+                                       <li class="pull_left li1"><s></s>全部评论（<span>16</span>)</li>
+                                       <li class="pull_left li2"><s></s>不错呦（<span>15</span>)</li>
+                                       <li class="pull_left li3"><s></s>待提高（<span>1</span>)</li>
+                                       <li class="pull_left li4"><s></s>小失落（<span>0</span>)</li>
+                                   </ul>
+                               </div>
+                               <div class="detail_allsays">
+                                   <!--一条评论-->
+                                   <div class="detail_user_says clearfix">
+                                       <div class="detail_user_left pull_left">
+                                           <img src="images/default_userpic.png" alt="">
+                                           <p>189********</p>
+                                       </div>
+
+                                       <div class="detail_user_right pull_right">
+                                           <ul>
+                                               <li class="clearfix">
+                                                   <p class="pull_left pp">评分</p>
+                                                   <p class="pull_left">
+                                                       <span class="star"></span>
+                                                       <span class="star"></span>
+                                                       <span class="star"></span>
+                                                       <span class="star"></span>
+                                                       <span class="star"></span>
+                                                   </p>
+                                               </li>
+                                               <li class="clearfix">
+                                                   <p class="pull_left pp">内容</p>
+                                                   <p class="pull_left">不错不错不错不错</p>
+                                               </li>
+                                               <li ><span class="pt">2017-06-29 07:24:15</span></li>
+                                           </ul>
+                                       </div>
+                                   </div>
+                                   <!--一条评论结束-->
+
+    <!--一条评论-->
+                                   <div class="detail_user_says clearfix not">
+                                       <div class="detail_user_left pull_left">
+                                           <img src="images/default_userpic.png" alt="">
+                                           <p>189********</p>
+                                       </div>
+
+                                       <div class="detail_user_right pull_right">
+                                           <ul>
+                                               <li class="clearfix">
+                                                   <p class="pull_left pp">评分</p>
+                                                   <p class="pull_left">
+                                                       <span class="star"></span>
+                                                       <span class="star"></span>
+                                                       <span class="star"></span>
+                                                       <span class="star"></span>
+                                                       <span class="star"></span>
+                                                   </p>
+                                               </li>
+                                               <li class="clearfix">
+                                                   <p class="pull_left pp">内容</p>
+                                                   <p class="pull_left">不错不错不错不错</p>
+                                               </li>
+                                               <li ><span class="pt">2017-06-29 07:24:15</span></li>
+                                           </ul>
+                                       </div>
+                                   </div>
+      <!--一条评论结束-->
+                               </div>
+                           </div>
+                       </ul>
+                   </div>
+               </div>
+               <div class="rightpart pull_right">
+                   <div class="list_right">
+                       <h5 class="h5">最近浏览过</h5>
+                       <ul>
+                           <li>
+                               <a href="#">
+                                   <div class="pull_left">
+                                       <img src="images/d1.jpg" alt="">
+                                   </div>
+                                   <div class="pull_con">
+                                       <h5>美国西北樱桃</h5>
+                                       <p><span>￥</span><span>49.90</span><span>/</span><span>450g</span></p>
+                                       <s><span>￥</span><span>59.90</span></s>
+                                   </div>
+                               </a>
+                           </li>
+                           <li>
+                               <a href="#">
+                                   <div class="pull_left">
+                                       <img src="images/d1.jpg" alt="">
+                                   </div>
+                                   <div>
+                                       <h5>美国西北樱桃</h5>
+                                       <p><span>￥</span><span>49.90</span><span>/</span><span>450g</span></p>
+                                       <s><span>￥</span><span>59.90</span></s>
+                                   </div>
+                               </a>
+                           </li>
+                           <li>
+                               <a href="#">
+                                   <div class="pull_left">
+                                       <img src="images/d1.jpg" alt="">
+                                   </div>
+                                   <div>
+                                       <h5>美国西北樱桃</h5>
+                                       <p><span>￥</span><span>49.90</span><span>/</span><span>450g</span></p>
+                                       <s><span>￥</span><span>59.90</span></s>
+                                   </div>
+                               </a>
+                           </li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+       </div>
+    </div>
+    <!-- footer -->
+    <div class="foot">
+        <div class="container content">
+            <ul class="ul">
+                <li class="fo_img1"></li>
+                <li class="fo_img2"></li>
+                <li class="fo_img3"></li>
+                <li class="fo_img4"></li>
+            </ul>
+            <div class="footbar">
+                <div class="block1 pull_left">
+                    <div class="logo"></div>
+                    <div class="tel">
+                        <img src="./images/guan_tel.png" alt="">
+                    </div>
+                    <div class="font-gray">
+                        <span class="f1">电话客服：</span><span class="f2">09:00 - 21:00</span>
+                        <br>
+                        <span class="f1">在线客服：</span><span class="f2">08:00 - 24:00</span>
+                    </div>
+                </div>
+                <ul class="block2 pull_left">
+                    <li>
+                        <img src="./images/guan_ewcode1.jpg" alt="">
+                        <span>天天果园官方微信</span>
+                    </li>
+                    <li>
+                        <img src="./images/guan_ewcode2.jpg" alt="">
+                        <span>天天果园APP</span>
+                    </li>
+                </ul>
+                <ul class="block3 pull_left">
+                    <li>
+                        <h4>购物指南</h4>
+                        <a href="help.html?id=0">新用户注册</a>
+                        <a href="help.html?id=1">在线下单</a>
+                        <a href="help.html?id=2">支付方式</a>
+                    </li>
+                    <li>
+                        <h4>配送说明</h4>
+                        <a href="help.html?id=3">运费说明</a>
+                        <a href="help.html?id=4">运费方式</a>
+                        <a href="help.html?id=5">发票说明</a>
+                    </li>
+                    <li>
+                        <h4>售后服务</h4>
+                        <a href="help.html?id=6">退换货规则</a>
+                        <a href="help.html?id=7">服务保障承诺</a>
+                        <a href="help.html?id=8">验货与签收</a>
+                    </li>
+                    <li>
+                        <h4>企业服务</h4>
+                        <a href="help.html?id=9">企业订购</a>
+                        <a href="help.html?id=10">公司简介</a>
+                        <a href="help.html?id=11">定制专区</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="text-right">
+                <p class="p1">版权所有 ©2017上海天天鲜果电子商务有限公司&nbsp;&nbsp;保留所有权利 |<a href="#">沪ICP备12042163</a>
+                </p>
+                <p class="p2">天天果园&nbsp;&nbsp;鲜果网购</p>
+                <div>
+                    <a href="https://www.sgs.gov.cn/lz/licenseLink.do?method=licenceView&amp;entyId=dov73ne26zbqpug3tq1p70teyahin76ot0">
+                        <img class="fo_logo" src="http://img9.fruitday.com/guan_shgs.gif" border="0">
+                    </a>
+                    <a class="fo_logo2" href="http://shwg.dianping.com/index.html"><img src="http://img9.fruitday.com/guan_wgdjp.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/common.js"></script>
+<script src="js/angular.min.js"></script>
+<script>
+//    购物车商品图片选项卡
+    var index = 0;
+
+    var timer;
+    function play() {
+        timer = setInterval(function(){
+            if(index>3){
+                index=0;
+            }
+            $(".dianul li img").css({
+                border:"none"
+            }).eq(index).css({
+                border:"1px solid #f6af0d"
+            })
+            $(".tuul li").css({
+                zIndex:"5"
+            }).eq(index).css({
+                zIndex:"8"
+            })
+            index++;
+        },5000)
+    }
+    play()
+    $(".MyFocus").hover(function () {
+        clearInterval(timer);
+    },function(){
+        play();
+    })
+
+
+//    购物车定位
+    $(".jiantou").on('click',function () {
+        $('.menu').css({display:"block"})
+    })
+    $('.close').on('click',function () {
+        $(".menu").css({display:"none"})
+    })
+    $(".up").on('click',function () {
+        $(".dingwei").html($(this).html());
+        $(".menu").css({display:"none"})
+    })
+
+    var flag=false;
+    $(".jump").each(function (index) {
+        $(this).click(function(){
+            flag=true;
+            $(".sheng").html($(this).html());
+            $(".sheng").parent().css({
+                border:'.5px solid #999',
+                borderBottomColor:'#64a131',
+            })
+            $('.city_item').css({display:"block"})
+            $(".area_list").css({display:"none"})
+            $(".area_list2 ul").eq(index).css({display:"block"})
+        })
+    })
+    $(".sheng").on('click',function () {
+          if(flag){
+              $(".sheng").parent().css({
+                  border:'2px solid #64a131',
+                  borderBottom:'2px solid white',
+              })
+              $(".city2").parent().css({
+                  border:'2px solid #999',
+                  borderBottomColor:'#64a131',
+              })
+              $('.area_list').css({display:"block"})
+              $(".area_list2").css({display:"none"})
+          }
+    })
+    $('.city2').on('click',function () {
+        $(".sheng").parent().css({
+            border:'2px solid #999',
+            borderBottomColor:'#64a131',
+
+        })
+        $(".city2").parent().css({
+            border:'2px solid #64a131',
+            borderBottom:'2px solid white',
+        })
+        $('.area_list').css({display:"none"})
+        $(".area_list2").css({display:"block"})
+    })
+    $(".nums").click(function(e){
+        if(e.target.className == "sub pull_left rr"){
+            var t_num = e.target.parentNode.children[1].innerHTML;
+            var num = parseInt(t_num);
+            if(t_num > 1){
+                e.target.parentNode.children[1].innerHTML = --num;
+            }
+        }else if(e.target.className == "add pull_left rr"){
+            var t_num = e.target.parentNode.children[1].innerHTML;
+            var num = parseInt(t_num);
+            e.target.parentNode.children[1].innerHTML = ++num;
+        }
+    })
+//评论与商品具体详情选项卡
+    $('.pinglun').on('click',function () {
+        $('.no2').show();
+        $('.no1').hide();
+        $('.pinglun').css({
+            borderTop:"3px solid #64a131",
+            backgroundColor:"white"})
+        $('.curs').css({
+            border:"1px solid #ccc",
+            backgroundColor:"#f1f1f1"
+        })
+    })
+$('.curs').on('click',function () {
+    $('.no1').show()
+    $('.no2').hide()
+    $('.curs').css({
+        borderTop:"3px solid #64a131",
+        backgroundColor:"white"
+    })
+    $('.pinglun').css({
+        border:"1px solid #ccc",
+        backgroundColor:"#f1f1f1"})
+})
+    $('.ee').on('click',function () {
+        $('.thefruit').toggle();
+    })
+
+    var pathname = location.search;
+    pathname = pathname.split("&");
+    var path = [];
+    for(i in pathname){
+       path.push(pathname[i].split("=")[1]);
+    }
+    // 国家的背景图
+    var conArr= [-225, -255, -285, -315, -345, -375, -405, -495, -585, -615,-705, -735,-795, -825,-885, -1035];
+    var conTArr=["中国","美国","智利","泰国","西班牙","新西兰","意大利","越南","秘鲁","澳大利亚","荷兰","南非","朝鲜","法国","加拿大","英国"]
+    var app = angular.module('myApp', []);
+    app.controller("detail",function ($scope,$http) {
+        $scope.tih = function (event) {
+            $(".top_down span").html(function () {
+                return $(event.target).html();
+            })
+        }
+        // 退出登录
+        $scope.clearCookie = function () {
+            deleteCookie("sta");
+            window.location.href = "http://10.80.11.241:8080/index.html";
+        }
+        $scope.bol = false;
+        $scope.znum = 0;
+        // 登录信息的判断
+        if(getCookie("sta") == "true"){
+            $scope.tel = getCookie("name");
+            $scope.bol = true;
+            $http.get("http://10.80.11.241:8080/sp/"+$scope.tel).then(function (res) {
+                $scope.data = res.data[0].shop;
+                var znum = 0;
+                var zjq = 0;
+                $scope.data.map(function (value) {
+                    znum+=value.num;
+                    zjq+=value.num*value.data[0].price;
+                })
+                $scope.znum = znum;
+                $scope.zjq = zjq;
+            },function (err) {
+                console.log(err)
+            })
+        }
+
+        $scope.searchValue = "奇异果";
+
+        // 添加购物车
+        $scope.addShop = function (event,id,lei) {
+            if($scope.bol){
+                $(event.target).css({
+                    backgroundPosition:"-517px -291px",
+                });
+                _alertFn(function () {
+                    $(event.target).css({
+                        backgroundPosition:"-517px -243px",
+                    });
+                },function () {
+                    $(event.target).css({
+                        backgroundPosition:"-517px -243px",
+                    });
+                })
+                $http.get("http://10.80.11.241:8080/cart/"+lei+"/"+id+"/"+$scope.tel).then(function (res) {
+                    $scope.data = res.data[0].shop;
+                    var znum = 0;
+                    var zjq = 0;
+                    $scope.data.map(function (value) {
+                        znum+=value.num;
+                        zjq+=value.num*value.data[0].price;
+                    })
+                    $scope.znum = znum;
+                    $scope.zjq = zjq;
+                },function (err) {
+                    console.log(err);
+                })
+            }else{
+                alert("没登陆")
+            }
+        }
+        // 购物车的操作
+        $scope.mShop = function (event) {
+            if($(event.target)[0].className == "sub"){
+                var num = parseFloat($(event.target).next().html());
+                if(num>1) num--;
+                $(event.target).next().html(num);
+                var index = $(event.target).parents("li").index();
+                // 提交信息
+                $http.get("http://10.80.11.241:8080/change/"+$scope.tel+"/sub/"+index).then(function (res) {
+                    console.log(res);
+                },function(err){
+                    console.log(err);
+                })
+            }
+            if($(event.target)[0].className == "add"){
+                var num = $(event.target).prev().html();
+                num++;
+                $(event.target).prev().html(num);
+                var index = $(event.target).parents("li").index()
+                // 提交信息
+                $http.get("http://10.80.11.241:8080/change/"+$scope.tel+"/add/"+index).then(function (res) {
+                    console.log(res);
+                },function(err){
+                    console.log(err);
+                })
+            }
+            // 删除
+            if($(event.target)[0].className == "f_r"){
+                $(event.target).parents("li").remove();
+                var index = $(event.target).parents("li").index()
+                // 提交信息
+                $http.get("http://10.80.11.241:8080/change/"+$scope.tel+"/del/"+index).then(function (res) {
+                    console.log(res);
+                },function(err){
+                    console.log(err);
+                })
+            }
+            var zj = 0;
+            var zh = 0;
+            $(".g_num").each(function(index){
+                zj += parseFloat($(this).html());
+                zh += parseFloat($(this).html())*parseFloat($(".u_price").eq(index).html());
+            })
+            $scope.znum = zj;
+            $scope.zjq = zh;
+        }
+
+
+        $http.get("http://10.80.11.241:8080/shop/"+path[0]+"/"+path[1]).then(function (res) {
+            console.log(res)
+            $scope.datas = res.data[0];
+            if(res.data[0].message == ""){
+                $scope.mes = true;
+            }else{
+                $scope.mes = false;
+            }
+            if(res.data[0].explain == ""){
+                $scope.exp = true;
+            }else{
+                $scope.exp = false;
+            }
+            if(res.data[0].place == "其它"){
+                $scope.pla = true;
+            }else{
+                $scope.pla = false;
+            }
+            if(res.data[0].sweet == ""){
+                res.data[0].sweet = 1;
+                $scope.swt = true;
+            }else{
+                $scope.swt = false;
+            }
+            // 鼠标hover
+            $scope.overFn = function (event) {
+                var thisIndex = $(event.target).parent().index()
+                $(".dianul li img").css({
+                    border:"none"
+                })
+                $(event.target).css({
+                    border:"1px solid #f6af0d"
+                })
+                $(".tuul li").hide().eq(thisIndex).show();
+                index = thisIndex;
+            }
+//                -449px -255px;
+            for(i in conTArr){
+                if(res.data[0].place == conTArr[i]){
+                    $(".guoqi").css({
+                        backgroundPosition:"-449px "+conArr[i]+"px"
+                    });
+                }
+            }
+        },function (err) {
+            console.log(err);
+        })
+
+    })
+</script>
+</html>

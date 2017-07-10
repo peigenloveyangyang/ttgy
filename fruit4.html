@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="shortcut icon" href="http://www.fruitday.com/favicon.ico">
+    <link rel="stylesheet" href="css/alone.css">
+    <link rel="stylesheet" href="css/reset.css">
+</head>
+
+<body>
+    <div class="zt">
+        <img class="zt" src="images/f1.jpg" alt="">
+        <div class="F_one">
+            <img src="images/f2.jpg" alt="">
+        </div>
+        <div class="five">
+            <ul class="footers">
+                <li class="_hover">
+                    <a href="##">
+                        <div class="f1">
+                            <img src="images/f4.jpg" alt="">
+                        </div>
+                        <div class="f2">
+                            <h3>优选佳沛新西兰阳光金奇异果(原...</h3>
+                            <p class="love">营养好吃 味道独特</p>
+                            <div class="f2_red">
+                                <span>已省39元</span>
+                            </div>
+                            <p class="ppp">
+                                <span>￥</span>
+                                <span>199</span>
+                                <span>.00/33个</span>
+                            </p>
+                            <div class="svg"></div>
+                        </div>
+                    </a>
+                </li>
+                <li class="_hover">
+                    <a href="##">
+                        <div class="f1">
+                            <img src="images/f5.jpg" alt="">
+                        </div>
+                        <div class="f2">
+                            <h3>佳沛新西兰阳光金奇异果(巨无霸...</h3>
+                            <p class="love">一口爆浆超过瘾</p>
+                            <p class="ppp">
+                                <span>￥</span>
+                                <span>88</span>
+                                <span>.00/6个</span>
+                            </p>
+                            <div class="svg"></div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="F_two">
+            <img src="images/f6.jpg" alt="">
+        </div>
+        <div class="F_three">
+            <img src="images/f8.jpg" alt="">
+        </div>
+        <div class="F_four">
+            <img src="images/f10.jpg" alt="">
+        </div>
+        <div class="F_five">
+            <img src="images/f12.jpg" alt="">
+        </div>
+    </div>
+    <div class="five">
+        <ul class="footers">
+            <li class="_hover">
+                <a href="##">
+                    <div class="f1">
+                        <img src="images/f4.jpg" alt="">
+                    </div>
+                    <div class="f2">
+                        <h3>佳沛新西兰绿奇异果(巨无霸）</h3>
+                        <p class="love">稀有 巨营养</p>
+                        <div class="f2_red">
+                            <span>第二件省20元</span>
+                        </div>
+                        <p class="ppp">
+                            <span>￥</span>
+                            <span>49</span>
+                            <span>.90/6个</span>
+                        </p>
+                        <div class="svg"></div>
+                    </div>
+                </a>
+            </li>
+            <li class="_hover">
+                <a href="##">
+                    <div class="f1">
+                        <img src="images/f5.jpg" alt="">
+                    </div>
+                    <div class="f2">
+                        <h3>优选佳沛新西兰阳光金奇异果</h3>
+                        <p class="love">营养好吃 味道独特</p>
+                        <div class="f2_red">
+                            <span>热卖</span>
+                        </div>
+                        <p class="ppp">
+                            <span>￥</span>
+                            <span>88</span>
+                            <span>.00/12个</span>
+                        </p>
+                        <div class="svg"></div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <div>
+            <a href="###">
+            	<img class="zt" src="images/f16.jpg" alt="">
+            </a>
+        </div>
+        <img class="jump" src="images/22.png" alt="">
+        <div class="shop_car">
+            <a href="###">
+                <img class="shop" src="images/23.svg" alt="">
+            </a>
+        </div>
+        <script src="js/jquery-3.2.1.js"></script>
+        <script>
+        $(window).scroll(function() {
+            if ($(window).scrollTop() == 0) {
+                $(".jump").hide();
+            } else {
+                $(".jump").show();
+            }
+        })
+        $(".jump").click(function() {
+            function tops() {
+                var st = $(window).scrollTop();
+                st -= 100;
+                if (st < 0) {
+                    $(window).scrollTop(0);
+                } else if (st > 0) {
+                    $(window).scrollTop(st);
+                    requestAnimationFrame(tops);
+                }
+            }
+            tops();
+        })
+        </script>
+</body>
+
+</html>
